@@ -518,7 +518,8 @@
               "language": "en-US",
               "server_vad": true,
               "dump": true,
-              "history": 10
+              "greeting": "TEN Agent connected. How can I help you today?",
+              "max_history": 10
             }
           },
           {
@@ -534,7 +535,6 @@
               "max_tokens": 512,
               "prompt": "",
               "proxy_url": "${env:OPENAI_PROXY_URL}",
-              "greeting": "TEN Agent connected. How can I help you today?",
               "checking_vision_text_items": "[\"Let me take a look...\",\"Let me check your camera...\",\"Please wait for a second...\"]",
               "max_memory_length": 10,
               "enable_tools": true
@@ -593,6 +593,26 @@
                   {
                     "extension_group": "tools",
                     "extension": "vision_analyze_tool_python"
+                  }
+                ]
+              }
+            ],
+            "cmd": [
+              {
+                "name": "on_user_joined",
+                "dest": [
+                  {
+                    "extension_group": "llm",
+                    "extension": "openai_v2v_python"
+                  }
+                ]
+              },
+              {
+                "name": "on_user_left",
+                "dest": [
+                  {
+                    "extension_group": "llm",
+                    "extension": "openai_v2v_python"
                   }
                 ]
               }
@@ -688,102 +708,19 @@
                 ]
               },
               {
-                "name": "tool_call_get_current_weather",
+                "name": "tool_call",
                 "dest": [
                   {
                     "extension_group": "tools",
-                    "extension": "weatherapi_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "name": "tool_call_get_past_weather",
-                "dest": [
+                    "extension": "vision_analyze_tool_python"
+                  },
                   {
                     "extension_group": "tools",
-                    "extension": "weatherapi_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "name": "tool_call_get_future_weather",
-                "dest": [
+                    "extension": "weatherapi_tool_python"
+                  },
                   {
                     "extension_group": "tools",
-                    "extension": "weatherapi_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "name": "tool_call_bing_search",
-                "dest": [
-                  {
-                    "extension_group": "tools",
-                    "extension": "bingsearch_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "name": "tool_call_get_vision_chat_completion",
-                "dest": [
-                  {
-                    "extension_group": "tools",
-                    "extension": "vision_analyze_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
+                    "extension": "bingsearch_tool_python"
                   }
                 ]
               }
@@ -848,7 +785,8 @@
               "language": "en-US",
               "server_vad": true,
               "dump": true,
-              "history": 10
+              "greeting": "TEN Agent connected. How can I help you today?",
+              "max_history": 10
             }
           },
           {
@@ -975,82 +913,33 @@
                 ]
               },
               {
-                "name": "tool_call_get_current_weather",
+                "name": "tool_call",
                 "dest": [
                   {
                     "extension_group": "tools",
-                    "extension": "weatherapi_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
+                    "extension": "weatherapi_tool_python"
+                  },
+                  {
+                    "extension_group": "tools",
+                    "extension": "bingsearch_tool_python"
                   }
                 ]
               },
               {
-                "name": "tool_call_get_past_weather",
+                "name": "on_user_joined",
                 "dest": [
                   {
-                    "extension_group": "tools",
-                    "extension": "weatherapi_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
+                    "extension_group": "llm",
+                    "extension": "openai_v2v_python"
                   }
                 ]
               },
               {
-                "name": "tool_call_get_future_weather",
+                "name": "on_user_left",
                 "dest": [
                   {
-                    "extension_group": "tools",
-                    "extension": "weatherapi_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "name": "tool_call_bing_search",
-                "dest": [
-                  {
-                    "extension_group": "tools",
-                    "extension": "bingsearch_tool_python",
-                    "msg_conversion": {
-                      "type": "per_property",
-                      "keep_original": true,
-                      "rules": [
-                        {
-                          "path": "_ten.name",
-                          "conversion_mode": "fixed_value",
-                          "value": "tool_call"
-                        }
-                      ]
-                    }
+                    "extension_group": "llm",
+                    "extension": "openai_v2v_python"
                   }
                 ]
               }
@@ -1383,6 +1272,201 @@
                   {
                     "extension_group": "chatgpt",
                     "extension": "openai_chatgpt"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "va_coze_azure",
+        "auto_start": false,
+        "nodes": [
+          {
+            "type": "extension",
+            "extension_group": "default",
+            "addon": "agora_rtc",
+            "name": "agora_rtc",
+            "property": {
+              "app_id": "${env:AGORA_APP_ID}",
+              "token": "<agora_token>",
+              "channel": "ten_agent_test",
+              "stream_id": 1234,
+              "remote_stream_id": 123,
+              "subscribe_audio": true,
+              "publish_audio": true,
+              "publish_data": true,
+              "enable_agora_asr": true,
+              "agora_asr_vendor_name": "microsoft",
+              "agora_asr_language": "en-US",
+              "agora_asr_vendor_key": "${env:AZURE_STT_KEY}",
+              "agora_asr_vendor_region": "${env:AZURE_STT_REGION}",
+              "agora_asr_session_control_file_path": "session_control.conf"
+            }
+          },
+          {
+            "type": "extension",
+            "extension_group": "default",
+            "addon": "interrupt_detector",
+            "name": "interrupt_detector"
+          },
+          {
+            "type": "extension",
+            "extension_group": "glue",
+            "addon": "coze_python_async",
+            "name": "coze_python_async",
+            "property": {
+              "token": "<coze_token>",
+              "bot_id": "<coze_bot_id>",
+              "base_url": "https://api.coze.cn",
+              "prompt": "",
+              "greeting": "TEN Agent connected. How can I help you today?"
+            }
+          },
+          {
+            "type": "extension",
+            "extension_group": "tts",
+            "addon": "azure_tts",
+            "name": "azure_tts",
+            "property": {
+              "azure_subscription_key": "${env:AZURE_TTS_KEY}",
+              "azure_subscription_region": "${env:AZURE_TTS_REGION}",
+              "azure_synthesis_voice_name": "en-US-AndrewMultilingualNeural"
+            }
+          },
+          {
+            "type": "extension",
+            "extension_group": "transcriber",
+            "addon": "message_collector",
+            "name": "message_collector"
+          }
+        ],
+        "connections": [
+          {
+            "extension_group": "default",
+            "extension": "agora_rtc",
+            "data": [
+              {
+                "name": "text_data",
+                "dest": [
+                  {
+                    "extension_group": "default",
+                    "extension": "interrupt_detector"
+                  },
+                  {
+                    "extension_group": "glue",
+                    "extension": "coze_python_async"
+                  },
+                  {
+                    "extension_group": "transcriber",
+                    "extension": "message_collector"
+                  }
+                ]
+              }
+            ],
+            "cmd": [
+              {
+                "name": "on_user_joined",
+                "dest": [
+                  {
+                    "extension_group": "glue",
+                    "extension": "coze_python_async"
+                  }
+                ]
+              },
+              {
+                "name": "on_user_left",
+                "dest": [
+                  {
+                    "extension_group": "glue",
+                    "extension": "coze_python_async"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "extension_group": "glue",
+            "extension": "coze_python_async",
+            "data": [
+              {
+                "name": "text_data",
+                "dest": [
+                  {
+                    "extension_group": "tts",
+                    "extension": "azure_tts"
+                  },
+                  {
+                    "extension_group": "transcriber",
+                    "extension": "message_collector"
+                  }
+                ]
+              }
+            ],
+            "cmd": [
+              {
+                "name": "flush",
+                "dest": [
+                  {
+                    "extension_group": "tts",
+                    "extension": "azure_tts"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "extension_group": "tts",
+            "extension": "azure_tts",
+            "audio_frame": [
+              {
+                "name": "pcm_frame",
+                "dest": [
+                  {
+                    "extension_group": "default",
+                    "extension": "agora_rtc"
+                  }
+                ]
+              }
+            ],
+            "cmd": [
+              {
+                "name": "flush",
+                "dest": [
+                  {
+                    "extension_group": "default",
+                    "extension": "agora_rtc"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "extension_group": "transcriber",
+            "extension": "message_collector",
+            "data": [
+              {
+                "name": "data",
+                "dest": [
+                  {
+                    "extension_group": "default",
+                    "extension": "agora_rtc"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "extension_group": "default",
+            "extension": "interrupt_detector",
+            "cmd": [
+              {
+                "name": "flush",
+                "dest": [
+                  {
+                    "extension_group": "glue",
+                    "extension": "coze_python_async"
                   }
                 ]
               }
