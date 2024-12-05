@@ -34,7 +34,7 @@
 </div>
 
 <br>
-<h2>🎉 TEN Agent with OpenAI Realtime API and RTC</h2>
+<h2>🎉 TEN Agent with OpenAI Realtime API</h2>
 
 Try OpenAI Realtime API, **Weather Check** and **Web Search** at [agent.theten.ai](https://agent.theten.ai).
 
@@ -43,7 +43,7 @@ Combining OpenAI Realtime API for ultra-low latency with RTC’s AI noise suppre
 ![TEN Agent with OpenAI Realtime API and RTC](https://github.com/TEN-framework/docs/blob/main/assets/gif/weather-and-news.gif?raw=true)
 
 <br>
-<h2>Usecases</h2>
+<h2>TEN Agent Usecases</h2>
 
 ![Usecases](https://github.com/TEN-framework/docs/blob/main/assets/jpg/usecases.jpg?raw=true)
 
@@ -75,7 +75,7 @@ Manages and adjusts agent behavior in real-time for dynamic responsiveness.
 
 
 <br>
-<h2>How to build TEN Agent locally
+<h2>Build TEN Agent Locally</h2>
 
 ### Prerequisites
 
@@ -111,18 +111,20 @@ For Apple Silicon Macs, uncheck "Use Rosetta for x86/amd64 emulation" in Docker 
 
 <br>
 
-### Next step
+### Next Step
 
-#### 1. Modify config files
-In the root of the project, use `cp` command to create `.env` from the [ .env.example ](https://github.com/TEN-framework/ten-agent/blob/main/.env.example).
+#### 1. Modify Configuration Files
 
-It will be used to store environment variables for `docker compose` later, and if you change it, you will need to `source .env` again in the container for the changes to take effect.
+In the root of the project, use the `cp` command to create a `.env` file from the [.env.example](https://github.com/TEN-framework/ten-agent/blob/main/.env.example).
+ template.
+
+The `.env` file will store environment variables for docker compose. If you make changes to this file, you will need to run source .env again inside the container for the changes to take effect.
 ```bash
 cp ./.env.example ./.env
 ```
 
-#### 2. Setup API keys
-Open the `.env` file and fill in the `keys`. We recommend using [ Deepgram ASR ](https://deepgram.com/) and [ FishAudio TTS ](https://fish.audio/) as they are free to sign up for and offer free credits. Of course, you can also use other services, see the list in [.env.example](https://github.com/TEN-framework/ten-agent/blob/main/.env.example).
+#### 2. Setup API Keys
+Open the `.env` file and fill in the required API keys. We recommend using [ Deepgram ASR ](https://deepgram.com/) and [ FishAudio TTS ](https://fish.audio/) as they are free to sign up for and offer free credits. Of course, you can also use other services, see the list in [.env.example](https://github.com/TEN-framework/ten-agent/blob/main/.env.example).
 ```bash
 # Agora App ID and Agora App Certificate
 # These are enabled by default when you create an Agora project
@@ -156,15 +158,14 @@ task use AGENT=agents/examples/demo
 ```
 
 #### 5. Start the server
-Once the build is done, `task run` on port `8080/49483`:
+Once the build is complete, start the server using the following command. The agent will run on ports `8080/49483`:
 ```bash
 task run
 ```
 
 ### Finish and verify
 
-#### TEN Agent
-Open up [localhost:3000]( http://localhost:3000 ) in browser to play the TEN Agent.
+Open [localhost:3000]( http://localhost:3000 ) in your browser to play with TEN Agent.
 
 #### TEN Graph Designer
 
@@ -175,7 +176,7 @@ Once you save the graph, you can return to [localhost:3000]( http://localhost:30
 ![TEN Graph Designer](https://github.com/TEN-framework/docs/blob/main/assets/gif/hello_world_python.gif?raw=true)
 
 <br>
-<h2>How components work together</h2>
+<h2>Diagram</h2>
 
 ![Components Diagram](https://github.com/TEN-framework/docs/blob/main/assets/jpg/diagram.jpg?raw=true)
 
