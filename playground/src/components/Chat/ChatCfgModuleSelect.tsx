@@ -31,13 +31,13 @@ import {
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useAppSelector, useGraphs, } from "@/common/hooks"
-import { AddonDef, Graph, Destination, GraphEditor, ProtocolLabel as GraphConnProtocol } from "@/common/graph"
+import { AddonDef, Graph, Destination, GraphEditor, ProtocolLabel as GraphConnProtocol, ProtocolLabel } from "@/common/graph"
 import { toast } from "sonner"
 import { BoxesIcon, ChevronRightIcon, LoaderCircleIcon, SettingsIcon, Trash2Icon, WrenchIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "../ui/dropdown"
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "../ui/dropdown"
 import { isLLM } from "@/common"
 import { compatibleTools, ModuleRegistry, ModuleTypeLabels } from "@/common/moduleConfig"
 
@@ -118,75 +118,92 @@ export function RemoteModuleCfgSheet() {
                         initialData={initialData}
                         metadata={metadata}
                         onUpdate={async (data, tools) => {
-                            // Clone the selectedGraph to avoid mutating the original graph
-                            const selectedGraphCopy: Graph = JSON.parse(JSON.stringify(selectedGraph));
-                            const nodes = selectedGraphCopy.nodes;
-                            let needUpdate = false;
+                            try {
+                                // Clone the selectedGraph to avoid mutating the original graph
+                                const selectedGraphCopy: Graph = JSON.parse(JSON.stringify(selectedGraph));
+                                const nodes = selectedGraphCopy.nodes;
+                                let needUpdate = false;
+                                let enableRTCVideoSubscribe = false;
 
 
-                            // Update graph nodes with selected modules
-                            Object.entries(data).forEach(([key, value]) => {
-                                const node = nodes.find((n) => n.name === key);
-                                if (node && value && node.addon !== value) {
-                                    node.addon = value;
-                                    node.property = addonModules.find((module) => module.name === value)?.defaultProperty;
-                                    needUpdate = true;
+                                // Retrieve the agora_rtc node
+                                const agoraRtcNode = GraphEditor.findNode(selectedGraphCopy, "agora_rtc");
+                                if (!agoraRtcNode) {
+                                    toast.error("agora_rtc node not found in the graph");
+                                    return;
                                 }
-                            });
 
-                            // Retrieve the agora_rtc node
-                            const agoraRtcNode = GraphEditor.findNode(selectedGraphCopy, "agora_rtc");
-                            if (!agoraRtcNode) {
-                                toast.error("agora_rtc node not found in the graph");
-                                return;
-                            }
+                                // Update graph nodes with selected modules
+                                Object.entries(data).forEach(([key, value]) => {
+                                    const node = nodes.find((n) => n.name === key);
+                                    if (node && value && node.addon !== value) {
+                                        node.addon = value;
+                                        node.property = addonModules.find((module) => module.name === value)?.defaultProperty;
 
-                            // Identify removed tools and process them
-                            const currentToolsInGraph = nodes
-                                .filter((node) => installedAndRegisteredToolModules.map((module) => module.name).includes(node.addon))
-                                .map((node) => node.addon);
-
-                            const removedTools = currentToolsInGraph.filter((tool) => !tools.includes(tool));
-                            removedTools.forEach((tool) => {
-                                GraphEditor.removeNodeAndConnections(selectedGraphCopy, tool);
-                                needUpdate = true;
-                            });
-
-                            // Process tool modules
-                            if (tools.length > 0) {
-                                GraphEditor.enableRTCVideoSubscribe(selectedGraphCopy, tools.some((tool) => tool.includes("vision")));
-
-                                tools.forEach((tool) => {
-                                    if (!currentToolsInGraph.includes(tool)) {
-                                        const toolModule = addonModules.find((module) => module.name === tool);
-
-                                        if (!toolModule) {
-                                            toast.error(`Module ${tool} not found`);
-                                            return;
-                                        }
-
-                                        const toolNode = GraphEditor.addNode(selectedGraphCopy, tool, tool, "default", toolModule.defaultProperty)
-
-                                        // Create or update connections
-                                        const llmNode = GraphEditor.findNodeByPredicate(selectedGraphCopy, (node) => isLLM(node.name));
-                                        if (llmNode) {
-                                            GraphEditor.linkTool(selectedGraphCopy, llmNode, toolNode);
-                                        }
+                                        needUpdate = true;
                                     }
                                 });
-                                needUpdate = true;
-                            }
 
-                            // Perform the update if changes are detected
-                            if (needUpdate) {
-                                try {
+                                const geminiV2VNode = GraphEditor.findNodeByPredicate(selectedGraphCopy, (node) => node.addon === "gemini_v2v_python");
+                                if (geminiV2VNode) {
+                                    GraphEditor.addOrUpdateConnection(
+                                        selectedGraphCopy,
+                                        `${agoraRtcNode.extensionGroup}.${agoraRtcNode.name}`,
+                                        `${geminiV2VNode.extensionGroup}.${geminiV2VNode.name}`,
+                                        ProtocolLabel.VIDEO_FRAME,
+                                        "video_frame"
+                                    );
+                                    enableRTCVideoSubscribe = true;
+                                }
+
+                                // Identify removed tools and process them
+                                const currentToolsInGraph = nodes
+                                    .filter((node) => installedAndRegisteredToolModules.map((module) => module.name).includes(node.addon))
+                                    .map((node) => node.addon);
+
+                                const removedTools = currentToolsInGraph.filter((tool) => !tools.includes(tool));
+                                removedTools.forEach((tool) => {
+                                    GraphEditor.removeNodeAndConnections(selectedGraphCopy, tool);
+                                    needUpdate = true;
+                                });
+
+                                // Process tool modules
+                                if (tools.length > 0) {
+                                    if (!enableRTCVideoSubscribe) {
+                                        enableRTCVideoSubscribe = tools.some((tool) => tool.includes("vision"))
+                                    }
+                                    tools.forEach((tool) => {
+                                        if (!currentToolsInGraph.includes(tool)) {
+                                            const toolModule = addonModules.find((module) => module.name === tool);
+
+                                            if (!toolModule) {
+                                                toast.error(`Module ${tool} not found`);
+                                                return;
+                                            }
+
+                                            const toolNode = GraphEditor.addNode(selectedGraphCopy, tool, tool, "default", toolModule.defaultProperty)
+
+                                            // Create or update connections
+                                            const llmNode = GraphEditor.findNodeByPredicate(selectedGraphCopy, (node) => isLLM(node.name));
+                                            if (llmNode) {
+                                                GraphEditor.linkTool(selectedGraphCopy, llmNode, toolNode);
+                                            }
+                                        }
+                                    });
+                                    needUpdate = true;
+                                }
+
+                                GraphEditor.enableRTCVideoSubscribe(selectedGraphCopy, enableRTCVideoSubscribe);
+
+                                // Perform the update if changes are detected
+                                if (needUpdate) {
                                     await updateGraph(selectedGraphCopy.id, selectedGraphCopy);
                                     toast.success("Modules updated", {
                                         description: `Graph: ${selectedGraphCopy.id}`,
                                     });
-                                } catch (e) {
-                                    toast.error("Failed to update modules");
                                 }
+                            } catch (e: any) {
+                                toast.error(`Failed to update modules: ${e}`);
                             }
                         }}
 
