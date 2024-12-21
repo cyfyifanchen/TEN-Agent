@@ -140,7 +140,7 @@ export const getGraphProperties = (
     } else if (graphName == "va_openai_v2v") {
         return {
             "v2v": {
-                "model": "gpt-4o-realtime-preview",
+                "model": "gpt-4o-realtime-preview-2024-12-17",
                 "voice": voiceNameMap[language]["openai"][voiceType],
                 "language": language,
                 "prompt": prompt,
@@ -150,7 +150,7 @@ export const getGraphProperties = (
     } else if (graphName == "va_openai_v2v_fish") {
         return {
             "v2v": {
-                "model": "gpt-4o-realtime-preview",
+                "model": "gpt-4o-realtime-preview-2024-12-17",
                 "voice": voiceNameMap[language]["openai"][voiceType],
                 "language": language,
                 "prompt": prompt,
@@ -188,6 +188,18 @@ export const getGraphProperties = (
             "v2v": {
                 "prompt": prompt,
                 // "greeting": combined_greeting,
+            }
+        }
+    } else if (graphName == "va_dify_azure") {
+        return {
+            "agora_rtc": {
+                "agora_asr_language": language,
+            },
+            "llm": {
+                "greeting": combined_greeting,
+            },
+            "tts": {
+                "azure_synthesis_voice_name": voiceNameMap[language]["azure"][voiceType]
             }
         }
     }
