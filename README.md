@@ -127,9 +127,19 @@ Describe a topic and ask TEN Agent to tell you a story while also generating ima
 
 ### macOS: Docker setting on Apple Silicon
 
-For Apple Silicon Macs, uncheck "Use Rosetta for x86/amd64 emulation" in Docker settings. Note: This may result in slower build times on ARM, but performance will be normal when deployed to x64 servers.
+<details>
+  <summary><kbd>Docker setting on Apple Silicon</kbd></summary>
 
-![Docker Setting](https://github.com/TEN-framework/docs/blob/main/assets/gif/docker_setting.gif?raw=true)
+  <br>
+  <picture>
+
+  ![Docker Setting](https://github.com/TEN-framework/docs/blob/main/assets/gif/docker_setting.gif?raw=true)
+
+  </picture>
+
+</details>
+
+For Apple Silicon Macs, uncheck "Use Rosetta for x86/amd64 emulation" in Docker settings. Note: This may result in slower build times on ARM, but performance will be normal when deployed to x64 servers.
 
 <br>
 
