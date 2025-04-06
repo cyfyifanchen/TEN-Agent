@@ -42,24 +42,25 @@
 
 - [👋 Getting Started & Join TEN Community](#-getting-started--join-our-community)
 - [✨ Features](#-features)
-  - [`1` Ten Agent + Trulience](#1-chain-of-thought)
-  - [`2` Ten Agent + Deepseek](#2-branching-conversations)
-  - [`3` Ten Agent + ESP32](#3-artifacts-support)
-  - [`4` Ten Agent + Dify](#4-file-upload-knowledge-base)
-  - [`5` Ten Agent + Gemini Multimodal Live API](#5-multi-model-service-provider-support)
-  - [`6` Ten Agent + Storyteller + Image Generator](#6-local-large-language-model-llm-support)
-  - [`7` Model Visual Recognition](#7-model-visual-recognition)
+  - [`1` Ten Agent + Trulience](#1-ten-agent-trulience)
+  - [`2` Ten Agent + Deepseek](#2-ten-agent-deepseek)
+  - [`3` Ten Agent + ESP32](#3-ten-agent-esp32)
+  - [`4` Ten Agent + Dify](#4-ten-agent-dify)
+  - [`5` Ten Agent + Gemini Multimodal Live API](#5-ten-agent-gemini-multimodal-live-api)
+  - [`6` Ten Agent + Storyteller + Image Generator](#6-ten-agent-storyteller-image-generator)
+  - [`7` Ten Agent + Coze](#7-ten-agent-coze)
 - [💡 TEN Agent Usecases](#ten-agent-usecases)
 - [🔌 Ready to use Extensions](#ready-to-use-extensions)
-- [🎮 TEN Agent Playground](#ready-to-use-extensions)
-- [🎥 TEN Agent Demo](#ready-to-use-extensions)
+- [🎮 Run TEN Agent Playground](#agent-playground)
+  - [1️⃣ Prerequisites](#prerequisites)
+  - [2️⃣ macOS: Docker setting on Apple Silicon](#macos-docker-setting-on-apple-silicon)
+  - [3️⃣ Next step](#next-step)
+- [🎥 Run TEN Agent Demo](#ten-agent-demo)
 - [🛠️ Deployment](#deployment)
 - [🏗️ TEN Agent Architecture](#deployment)
-  - [`A` 🌩️ Deploying with Vercel, Zeabur , Sealos or Alibaba Cloud](#a-deploying-with-vercel-zeabur--sealos-or-alibaba-cloud)
-  - [`B` 🐳 Deploying with Docker](#b-deploying-with-docker)
-  - [⚙️ Environment Variable](#environment-variable)
-- [🌍 Ecosystem](#-ecosystem)
-- [💻 Local Development](#️-local-development)
+  - [1️⃣ 🐳 Deploying with Docker](#b-deploying-with-docker)
+  - [2️⃣️ Environment Variable](#environment-variable)
+- [🌍 TEN Framework Ecosystem](#ten-framework-ecosystem)
 - [🤝 Contributing](#-contributing)
 
 ####
@@ -74,7 +75,7 @@ TEN Agent is a conversational voice AI agent powered by TEN, integrating **DeepS
 
 | Community Channel | Purpose |
 |------------------|----------|
-| [![Discord TEN Community](https://img.shields.io/discord/VnPftUzAMJ?color=5865F2&label=discord&labelColor=gray&logo=discord&logoColor=white)](https://discord.gg/VnPftUzAMJ) | Join TEN Discord Channel to engage with the community |
+| [![Discord TEN Community](https://img.shields.io/discord/1253268897545588837?color=5865F2&label=discord&labelColor=gray&logo=discord&logoColor=white)](https://github.com/TEN-framework/ten_framework) | Join TEN Discord Channel to engage with the community |
 | [![Follow on X](https://img.shields.io/twitter/follow/TenFramework?logo=X&color=%20%23f5f5f5)](https://twitter.com/intent/follow?screen_name=TenFramework) | Follow TEN Framework on X to stay updated on TEN Agent releases and news |
 
 > \[!IMPORTANT]
@@ -93,6 +94,13 @@ TEN Agent is a conversational voice AI agent powered by TEN, integrating **DeepS
 <br>
 <h2>✨ Features</h2>
 
+### `1` Ten Agent + Trulience
+
+Build engaging AI avatars with TEN Agent using [Trulience](https://trulience.com)'s diverse collection of free avatar options. To get it up and running, you only need 2 steps:
+
+1. Follow the README to finish setting up and running the Playground in `localhost:3000`
+2. Enter the avatar ID and [token](https://trulience.com/docs#/authentication/jwt-tokens/jwt-tokens?id=use-your-custom-userid) you get from [Trulience](https://trulience.com)
+
 <details open>
   <summary><kbd>TEN Agent + Trulience</kbd></summary>
 
@@ -105,51 +113,37 @@ TEN Agent is a conversational voice AI agent powered by TEN, integrating **DeepS
 
 </details>
 
-Build engaging AI avatars with TEN Agent using [Trulience](https://trulience.com)'s diverse collection of free avatar options. To get it up and running, you only need 2 steps:
+<div align="right">
 
-1. Follow the README to finish setting up and running the Playground in localhost:3000
-2. Enter the avatar ID and [token](https://trulience.com/docs#/authentication/jwt-tokens/jwt-tokens?id=use-your-custom-userid) you get from [Trulience](https://trulience.com)
+[![][back-to-top]](#readme-top)
 
-<br>
+</div>
 
-<h2>TEN Agent + Deepseek</h2>
-
-[TEN Agent + Deepseek](https://ten-framework.medium.com/deepgram-deepseek-fish-audio-build-your-own-voice-assistant-with-ten-agent-d3ee65faabe8)
+### `2` [TEN Agent + DeepSeek](https://ten-framework.medium.com/deepgram-deepseek-fish-audio-build-your-own-voice-assistant-with-ten-agent-d3ee65faabe8)
 
 TEN is a very versatile framework. That said, TEN Agent is compatible with DeepSeek R1, try experiencing realtime conversations with DeepSeek R1!
 
-<br>
-<h2>TEN Agent + ESP32</h2>
+<div align="right">
 
-[TEN Agent ESP32 Client](https://github.com/TEN-framework/TEN-Agent/tree/main/esp32-client)
+[![][back-to-top]](#readme-top)
+
+</div>
+
+### `3` [TEN Agent + ESP32](https://github.com/TEN-framework/TEN-Agent/tree/main/esp32-client)
 
 TEN Agent is now running on the Espressif ESP32-S3 Korvo V3 development board, an excellent way to integrate realtime communication with LLM on hardware.
 
-<br>
-<h2>TEN Agent + Dify with RAG + Coze</h2>
+<div align="right">
 
-<details>
-  <summary><kbd>TEN Agent + Dify Agent with RAG</kbd></summary>
+[![][back-to-top]](#readme-top)
 
-  <br>
-  <picture>
+</div>
 
-  ![Dify with RAG](https://github.com/TEN-framework/docs/blob/main/assets/gif/dify-rag.gif?raw=true)
+### `4` TEN Agent + Gemini Multimodal Live API
 
-  </picture>
+Try **Google Gemini Multimodal Live API** with **realtime vision** and **realtime screenshare detection** capabilities, it is a ready-to-use extension, along with powerful tools like **Weather Check** and **Web Search** integrated perfectly into TEN Agent.
 
-</details>
-
-  [TEN Agent + Dify](https://doc.theten.ai/docs/ten_agent/quickstart-1/use-cases/run_va/run_dify)  
-
-  [TEN Agent + Coze](https://doc.theten.ai/docs/ten_agent/quickstart-1/use-cases/run_va/run_coze)  
-
-TEN offers a great support to make the realtime interactive experience even better on other LLM platform as well, check out docs for more.
-
-<br>
-<h2>TEN Agent + Gemini Multimodal Live API</h2>
-
-<details>
+<details open>
   <summary><kbd>Gemini 2.0 Multimodal Live API</kbd></summary>
 
   <br>
@@ -161,12 +155,17 @@ TEN offers a great support to make the realtime interactive experience even bett
 
 </details>
 
-Try **Google Gemini Multimodal Live API** with **realtime vision** and **realtime screenshare detection** capabilities, it is a ready-to-use extension, along with powerful tools like **Weather Check** and **Web Search** integrated perfectly into TEN Agent.
+<div align="right">
 
-<br>
-<h2>TEN Agent + Storyteller + Image Generator</h2>
+[![][back-to-top]](#readme-top)
 
-<details>
+</div>
+
+### `5` TEN Agent + Storyteller + Image Generator
+
+Describe a topic and ask TEN Agent to tell you a story while also generating images of the story to provide a more immersive experience for kids.
+
+<details open>
   <summary><kbd>Storyteller + Image Generator</kbd></summary>
 
   <br>
@@ -178,20 +177,84 @@ Try **Google Gemini Multimodal Live API** with **realtime vision** and **realtim
 
 </details>
 
-Describe a topic and ask TEN Agent to tell you a story while also generating images of the story to provide a more immersive experience for kids.
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
+### `6` TEN Agent + Dify
+
+  [TEN Agent + Dify](https://doc.theten.ai/docs/ten_agent/quickstart-1/use-cases/run_va/run_dify)  
+
+TEN offers a great support to make the realtime interactive experience even better on other LLM platform as well, check out docs for more.
+
+<details open>
+  <summary><kbd>TEN Agent + Dify</kbd></summary>
+
+  <br>
+  <picture>
+
+  ![Dify with RAG](https://github.com/TEN-framework/docs/blob/main/assets/gif/dify-rag.gif?raw=true)
+
+  </picture>
+
+</details>
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
+### `7` TEN Agent + Coze
+
+  [TEN Agent + Coze](https://doc.theten.ai/docs/ten_agent/quickstart-1/use-cases/run_va/run_coze)  
+
+TEN offers a great support to make the realtime interactive experience even better on other LLM platform as well, check out docs for more.
+
+<!-- <details open>
+  <summary><kbd>TEN Agent + Dify Agent with RAG</kbd></summary>
+
+  <br>
+  <picture> -->
+
+  ![Dify with RAG](https://github.com/TEN-framework/docs/blob/main/assets/gif/dify-rag.gif?raw=true)
+
+  </picture>
+
+</details>
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
 
 <br>
 <h2>TEN Agent Usecases</h2>
 
 ![Usecases](https://github.com/TEN-framework/docs/blob/main/assets/jpg/usecases.jpg?raw=true)
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 <br>
 <h2>Ready-to-use Extensions</h2>
 
 ![Ready-to-use Extensions](https://github.com/TEN-framework/docs/blob/main/assets/jpg/extensions.jpg?raw=true)
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 <br>
-<h2>TEN Agent Playground in Local Environment</h2>
+<h2>🎮 Run TEN Agent Playground</h2>
 
 ### Prerequisites
 
@@ -262,47 +325,68 @@ Open the playground at [localhost:3000](http://localhost:3000) to configure your
 
 Now, we have successfully set up the playground. This is just the beginning of TEN Agent. There are many different ways to explore and utilize TEN Agent. To learn more, please refer to the [documentation](https://doc.theten.ai/docs/ten_agent/overview).
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 <br>
-<h2>Deployment</h2>
+<h2> 🎥 Run TEN Agent Demo</h2>
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
+<br>
+<h2> 🛳️ Deployment</h2>
 
 Once you have customized your agent (either by using the playground or editing `property.json` directly), you can deploy it by creating a release Docker image for your service.
 
 Read the [Deployment Guide](https://doc.theten.ai/docs/ten_agent/deployment_ten_agent/deploy_agent_service) for detailed information about deployment.
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 <br>
-<h2>TEN Agent Architecture</h2>
+<h2>🏗️ TEN Agent Architecture</h2>
 
 ![Components Diagram](https://github.com/TEN-framework/docs/blob/main/assets/jpg/diagram.jpg?raw=true)
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 <br>
-<h2>Stay Tuned</h2>
 
-Before we get started, be sure to star our repository and get instant notifications for all new releases!
-
-![TEN star us gif](https://github.com/TEN-framework/docs/blob/main/assets/gif/star_us_2.gif?raw=true)
-
-<!-- <br>
-<h2>Join Community</h2>
-
-- [Discord](https://discord.gg/VnPftUzAMJ): Ideal for sharing your applications and engaging with the community.
-- [GitHub Discussion](https://github.com/TEN-framework/ten-agent/discussions): Perfect for providing feedback and asking questions.
-- [GitHub Issues](https://github.com/TEN-framework/ten-agent/issues): Best for reporting bugs and proposing new features. Refer to our [contribution guidelines](./docs/code-of-conduct/contributing.md) for more details.
-- [X](https://img.shields.io/twitter/follow/TenFramework?logo=X&color=%20%23f5f5f5): Great for sharing your agents and interacting with the community. -->
-
-### ⭐️ TEN Ecosystem
+<h2>🌍 TEN Framework Ecosystem</h2>
 
 | [**🏚️ TEN Framework**][ten-framework-link]<br/>TEN, a AI agent framework to create various AI agents which supports real-time conversation.<br/><br/>![][ten-framework-shield] | ![][ten-framework-banner] |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------- |
 | [**🎙️ TEN Agent**][ten-agent-link]<br/>TEN Agent is a conversational voice AI agent powered by TEN, integrating Deepseek, Gemini, OpenAI, RTC, and hardware like ESP32. It enables realtime AI capabilities like seeing, hearing, and speaking, and is fully compatible with platforms like Dify and Coze.<br/><br/>![][ten-agent-shield]                                                                           | ![][ten-agent-banner] |
-| [**🎨 TMAN Designer**][tman-designer-link] `coming soon`<br/>TMAN Designer is low/no code option to make a cool voice agent. With it's easy-to-use workflow UI, you can build things easily. It comes with runtime, dark/light themes, integrated editors and integrated terminals.<br/><br/>![][tman-designer-shield]                 | ![][tman-designer-banner] |
-| [**📒 TEN Docs**][ten-docs-link]<br/>Automation tool for the ai i18n translation proces. It supports features such as automatic splitting of large files, incremental updates, and customization options for markdown translation.<br/><br/>![][ten-docs-shield]                       | ![][ten-docs-banner]   |
+| [**🎨 TMAN Designer**][tman-designer-link] `alpha`<br/>TMAN Designer is low/no code option to make a cool voice agent. With it's easy-to-use workflow UI, you can build things easily. It comes with runtime, dark/light themes, integrated editors and integrated terminals.<br/><br/>![][tman-designer-shield]                 | ![][tman-designer-banner] |
+| [**📒 TEN Portal**][ten-docs-link]<br/>The official site of TEN framework, it has documentation, blog and showcases.<br/><br/>![][ten-docs-shield]                       | ![][ten-docs-banner]   |
 
-### 🤝 Contributing
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
+<br>
+
+<h2>🤝 Contributing</h2>
 
 We welcome all forms of open-source collaboration! Whether you're fixing bugs, adding features, improving documentation, or sharing ideas - your contributions help advance personalized AI tools. Check out our GitHub Issues and Projects to find ways to contribute and show your skills. Together, we can build something amazing! 🤝✨
 
- <br>
- <h2>Code Contributors</h2>
+### Code Contributors
 
 [![TEN](https://contrib.rocks/image?repo=TEN-framework/ten-agent)](https://github.com/TEN-framework/ten-agent/graphs/contributors)
 
@@ -319,6 +403,8 @@ This project is [Apache 2.0](LICENSE) licensed.
 [![][back-to-top]](#readme-top)
 
 </div>
+
+[back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-gray?style=flat-square
 
 [ten-framework-shield]: https://img.shields.io/github/stars/ten-framework/ten_framework?color=ffcb47&labelColor=black&style=flat-square&logo=github
 [ten-agent-shield]: https://img.shields.io/github/stars/ten-framework/ten-agent?color=ffcb47&labelColor=black&style=flat-square&logo=github
