@@ -70,31 +70,28 @@
 
 ## 👋 Getting Started & Join TEN Community
 
-TEN Framework is a powerful platform for building and deploying sophisticated AI agents. Our framework enables multimodal interactions, visual recognition, and seamless integration with various AI services.
+TEN Agent is a conversational voice AI agent powered by TEN, integrating **DeepSeek**, **Gemini**, **OpenAI**, **RTC**, and hardware like **ESP32**. It enables realtime AI capabilities like seeing, hearing, and speaking, and is fully compatible with platforms like **Dify** and **Coze**.
 
-Whether you're a developer or user, TEN Agent provides the tools you need to harness AI capabilities. We welcome your feedback and contributions in our [GitHub repository](https://github.com/ten-framework/ten-agent/issues).
-
-| [![][discord-shield-badge]][discord-link] | Join our Discord community! This is where you can connect with developers and other enthusiastic users of LobeHub. |
-
-| [![][vercel-shield-badge]][vercel-link]   | No installation or registration necessary! Visit our website to experience it firsthand.                           |
-| :---------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| Community Channel | Purpose |
+|------------------|----------|
+| [![Discord TEN Community](https://img.shields.io/discord/VnPftUzAMJ?color=5865F2&label=discord&labelColor=gray&logo=discord&logoColor=white)](https://discord.gg/VnPftUzAMJ) | Join TEN Discord Channel to engage with the community |
+| [![Follow on X](https://img.shields.io/twitter/follow/TenFramework?logo=X&color=%20%23f5f5f5)](https://twitter.com/intent/follow?screen_name=TenFramework) | Follow TEN Framework on X to stay updated on TEN Agent releases and news |
 
 > \[!IMPORTANT]
 >
-> **Star Us**, You will receive all release notifications from GitHub without any delay \~ ⭐️
+> **Star Our Repository!** ⭐️ Get instant notifications for new releases and updates. Your support helps us grow and improve TEN Agent!
 
 ![TEN star us gif](https://github.com/TEN-framework/docs/blob/main/assets/gif/star_us_2.gif?raw=true)
 
 <details>
   <summary><kbd>Star History</kbd></summary>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=lobehub%2Flobe-chat&theme=dark&type=Date">
-    <img width="100%" src="https://api.star-history.com/svg?repos=lobehub%2Flobe-chat&type=Date">
+    <img width="100%" src="https://api.star-history.com/svg?repos=ten-framework/ten-agent&type=Date">
   </picture>
 </details>
 
 <br>
-<h2>✨ TEN Agent + Trulience</h2>
+<h2>✨ Features</h2>
 
 <details open>
   <summary><kbd>TEN Agent + Trulience</kbd></summary>
@@ -291,11 +288,6 @@ Before we get started, be sure to star our repository and get instant notificati
 - [GitHub Discussion](https://github.com/TEN-framework/ten-agent/discussions): Perfect for providing feedback and asking questions.
 - [GitHub Issues](https://github.com/TEN-framework/ten-agent/issues): Best for reporting bugs and proposing new features. Refer to our [contribution guidelines](./docs/code-of-conduct/contributing.md) for more details.
 - [X](https://img.shields.io/twitter/follow/TenFramework?logo=X&color=%20%23f5f5f5): Great for sharing your agents and interacting with the community. -->
-
-<br>
-<h2>Star History</h2>
-
-[![Star History Chart](https://api.star-history.com/svg?repos=ten-framework/ten-agent&type=Date)](https://star-history.com/#ten-framework/ten-agent&Date)
 
 ### ⭐️ TEN Ecosystem
 
