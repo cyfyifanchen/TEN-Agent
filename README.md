@@ -40,21 +40,20 @@
 
 #### Table of Contents
 
-- [👋 Getting Started & Join TEN Community](#-getting-started--join-our-community)
+- [👋 Getting Started & Join TEN Community](#-getting-started--join-ten-community)
 - [✨ Features](#-features)
-  - [`1` Ten Agent + Trulience](#1-ten-agent-trulience)
-  - [`2` Ten Agent + Deepseek](#2-ten-agent-deepseek)
-  - [`3` Ten Agent + ESP32](#3-ten-agent-esp32)
-  - [`4` Ten Agent + Dify](#4-ten-agent-dify)
-  - [`5` Ten Agent + Gemini Multimodal Live API](#5-ten-agent-gemini-multimodal-live-api)
-  - [`6` Ten Agent + Storyteller + Image Generator](#6-ten-agent-storyteller-image-generator)
-  - [`7` Ten Agent + Coze](#7-ten-agent-coze)
+  - [1️⃣ Ten Agent + Trulience](#1-ten-agent-trulience)
+  - [2️⃣ Ten Agent + Deepseek](#2-ten-agent-deepseek)
+  - [3️⃣ Ten Agent + ESP32](#3-ten-agent-esp32)
+  - [4️⃣ Ten Agent + Dify](#4-ten-agent-dify)
+  - [5️⃣ Ten Agent + Gemini Multimodal Live API](#5-ten-agent-gemini-multimodal-live-api)
+  - [6️⃣ Ten Agent + Storyteller + Image Generator](#6-ten-agent-storyteller-image-generator)
+  - [7️⃣ Ten Agent + Coze](#7-ten-agent-coze)
 - [💡 TEN Agent Usecases](#ten-agent-usecases)
 - [🔌 Ready to use Extensions](#ready-to-use-extensions)
 - [🎮 Run TEN Agent Playground](#agent-playground)
-  - [1️⃣ Prerequisites](#prerequisites)
-  - [2️⃣ macOS: Docker setting on Apple Silicon](#macos-docker-setting-on-apple-silicon)
-  - [3️⃣ Next step](#next-step)
+  - [🅰️ Run Playground in Localhost](#a-run-ten-agent-playground-in-localhost)
+  - [🅱️ Run Playground in Codespace(no docker)](#b-run-ten-agent-playground-in-codespace)
 - [🎥 Run TEN Agent Demo](#ten-agent-demo)
 - [🛠️ Deployment](#deployment)
 - [🏗️ TEN Agent Architecture](#deployment)
@@ -92,7 +91,7 @@ TEN Agent is a conversational voice AI agent powered by TEN, integrating **DeepS
 </details>
 
 <br>
-<h2>✨ Features</h2>
+<h2>✨Features</h2>
 
 ### `1` Ten Agent + Trulience
 
@@ -256,7 +255,7 @@ TEN offers a great support to make the realtime interactive experience even bett
 <br>
 <h2>🎮 Run TEN Agent Playground</h2>
 
-### Prerequisites
+### 1️⃣ Prerequisites
 
 | Category | Requirements |
 |----------|-------------|
